@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+    db-movies:
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        
+        environment:
+            - POSTGRES_USER=movies
+            - POSTGRES_PASSWORD=movies123
+            - POSTGRES_DB=movies
+            - PGDATA=/var/lib/postgresql/data/pgdata
+            
+        volumes:
+            - ./data:/var/lib/postgresql/data
+        
+            
+volumes:
+    movies-data:
